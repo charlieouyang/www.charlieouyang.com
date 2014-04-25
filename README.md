@@ -8,9 +8,9 @@ You can clone this repo and run index.html or you can browse www.charlieouyang.c
 ## Credits 
 * AJ n33.co @n33co dribbble.com/n33
 * Images:
-** fotogrph (http://fotogrph.com/)
-** n33 (http://flypixel.com/n33)
+--* fotogrph (http://fotogrph.com/)
+--* n33 (http://flypixel.com/n33)
 * Other:
-** jQuery (jquery.com)
-** html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-** skelJS (skeljs.org)
+--* jQuery (jquery.com)
+--* html5shiv.js (@afarkas @jdalton @jon_neal @rem)
+--* skelJS (skeljs.org)
