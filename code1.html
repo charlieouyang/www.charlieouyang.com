@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Java Code Snippets</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		
+		<!-- for highlighting -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="js/codemirror.js"></script>
+		<script src="js/javascript.js"></script>
+		<script src="js/code1.js"></script>
+		
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,600,700" rel="stylesheet" />
+		<link rel="stylesheet" href="css/codemirror.css">
+		<link rel="stylesheet" href="css/skel-noscript.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style-desktop.css" />
+	</head>
+	<body>	
+		<div class="wrapper wrapper-style3" style="padding-top: 2em;">
+			<article id="portfolio">
+				<header style="margin:0 0 0 0">
+					<h2 style="margin:0 0 0 0">Brogramming!</h2>
+				</header>
+				<div class="container">
+					<div class="row">
+						<div class="12u">
+						</div>
+					</div>
+					
+					<!-- Interview Question 1 -->
+					<div class="row">
+						<div class="4u" style="width:100%">
+							<article class="box box-style2">
+								<h3>Interview Question #1</h3>
+								<p><b>Question</b>: Write a function to reverse an array of characters in place. "In place" means "without creating a new string in memory".</p>
+								<div id="code" style="text-align: -webkit-left;">
+									<textarea id="javaCode1">
+public char[] reverse(char[] input){
+	or empty or just one character
+	if (input == null || input.length == 0 || input.length == 1){
+		return 
+	//If null input;
+	}
+	
+	//Replace in place
+	//Keep swapping two elements starting with the first and last, and then work inwards
+	int end = input.length - 1;
+	for(int i=0; i<input.length/2; i++){
+		char temp = input[i];
+		input[i] = input[end];
+		input[end] = temp;
+		end--;
+	}
+	
+	return input;
+}
+									</textarea>
+								</div>
+							</article>
+						</div>
+					</div>
+					
+					<!-- Interview Question 2 -->
+					<div class="row">
+						<div class="4u" style="width:100%">
+							<article class="box box-style2">
+								<h3>Interview Question #2</h3>
+								<p><b>Question</b>: Given two arrays, of size n and size t that contain a series of random integers design an algorithm that finds which numbers are not present in the first array, but are present in the second in the second. You may use any core Java APIs to solve this task.</p>
+								<div id="code" style="text-align: -webkit-left;">
+									<textarea id="javaCode2">
+public int[] findDistinctInSecondArray(int[] firstArray, int[] secondArray){
+	//I'm assuming that since the input are both int arrays, the return result should also be int array		
+	ArrayList<Integer> distinctIntegers = new ArrayList<Integer>();
+	Arrays.sort(firstArray);
+	Arrays.sort(secondArray);
+	
+	//Use two pointers. One pointer per array
+	//Since the arrays are sorted, we can keep increment both pointers and check if the elements are equal
+
+	int i = 0;
+	int j = 0;
+	
+	while(i<firstArray.length && j<secondArray.length){
+		if(firstArray[i] > secondArray[j]){
+			distinctIntegers.add(secondArray[j]);
+			j++;
+		}
+		else if(firstArray[i] < secondArray[j]){
+			i++;
+		}
+		else{
+			i++;
+			j++;
+		}
+	}
+	
+	if (i>=firstArray.length && j<secondArray.length){
+		for(int m=j; m<secondArray.length; m++){
+			distinctIntegers.add(secondArray[m]);
+		}
+	}
+	
+	//I can use 
+	//int[] result = ArrayUtils.toPrimitive((Integer[])distinctIntegers.toArray());
+	//But ArrayUtils is not part of the Java Core API
+	int[] result = new int[distinctIntegers.size()];
+	for(int n = 0; n < distinctIntegers.size(); n++) {
+	    if (distinctIntegers.get(n) != null) {
+	    	result[n] = distinctIntegers.get(n);
+	    }
+	}
+	
+	return result;
+}
+									</textarea>
+								</div>
+							</article>
+						</div>
+					</div>
+					
+				</div>
+				<footer>
+					<p>Do you like what you see?</p>
+					<a href="index.html#contactSection" class="button button-big">Get in touch with me</a>
+				</footer>
+			</article>
+		</div>
+	</body>
+</html>
